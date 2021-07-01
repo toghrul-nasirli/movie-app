@@ -1,6 +1,6 @@
 <nav class="border-b border-gray-800">
-    <div class="container mx-auto flex items-center justify-between px-4 py-6">
-        <ul class="flex items-center">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-6">
+        <ul class="flex flex-col md:flex-row items-center">
             <li>
                 <a href="#">
                     <svg class="w-32" viewBox="0 0 96 24" fill="none">
@@ -10,18 +10,18 @@
                     </svg>
                 </a>
             </li>
-            <li class="ml-16">
+            <li class="md:ml-16 mt-3 md:mt-0">
                 <a href="#" class="hover:text-gray-300">Movies</a>
             </li>
-            <li class="ml-6">
+            <li class="md:ml-6 mt-3 md:mt-0">
                 <a href="#" class="hover:text-gray-300">TV Shows</a>
             </li>
-            <li class="ml-6">
+            <li class="md:ml-6 mt-3 md:mt-0">
                 <a href="#" class="hover:text-gray-300">Actors</a>
             </li>
         </ul>
-        <div class="flex items-center">
-            <div class="relative">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="relative mt-3 md:mt-0">
                 <input type="text" class="bg-gray-800 text-sm rounded-full w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline" placeholder="Search...">
                 <div class="absolute top-0">
                     <svg class="fill-current w-4 text-gray-500 mt-2 ml-2" viewBox="0 0 24 24">
@@ -29,7 +29,7 @@
                     </svg>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="md:ml-4 mt-3 md:mt-0">
                 <a href="#">
                     <img src="{{ asset('img/me.jpg') }}" class="rounded-full w-8 h-8">
                 </a>
