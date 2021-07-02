@@ -13,7 +13,7 @@
             <span class="ml-1">{{ $movie['vote_average'] * 10 . '%' }}</span>
             <span class="mx-2">|</span>
             @if (isset($movie['release_date']))
-                <span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('M d, Y') }}</span>
+                <span>{{ parse_date($movie['release_date'], 'M d, Y') }}</span>
             @else
                 <span>Upcoming</span>
             @endif
