@@ -27,7 +27,9 @@
                                 @endif
                             </div>
                             <div class="text-gray-400 text-sm">
-                                Drama, Sci-Fi, Fantasy
+                                @foreach ($popularMovie['genre_ids'] as $genreId)
+                                    {{ $genres->get($genreId) }}{{ !$loop->last ? ',' : '' }}
+                                @endforeach
                             </div>
                         </div>
                     </div>
