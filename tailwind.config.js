@@ -7,9 +7,19 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {},
+    spinner: (theme) => ({
+      default: {
+        color: '#dae1e7',
+        size: '1em',
+        border: '2px',
+        speed: '500ms',
+      },
+    }),
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-spinner')({ className: 'spinner', themeKey: 'spinner' }),
+  ],
 }
