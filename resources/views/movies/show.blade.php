@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="movie-info border-b border-gray-800">
-        <div class="container flex items-center flex-col md:flex-row mx-auto px-4 py-16">
+        <div class="container flex items-center flex-col md:flex-row mx-auto px-4 py-12">
             @if ($movie['poster_path'])
                 <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="w-64 md:w-80">
             @else
