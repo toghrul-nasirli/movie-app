@@ -1,9 +1,13 @@
 <div class="mt-8">
-    <a href="#">
-        <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
+    <a href="{{ route('movies.show', $movie['id']) }}">
+        @if ($movie['poster_path'])
+            <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
+        @else
+            <img src="{{ asset('img/no-poster.png') }}" alt="{{ $movie['title'] }}" class="rounded hover:opacity-75 transition ease-in-out duration-200">
+        @endif
     </a>
     <div class="mt-2">
-        <a href="#" class="text-lg mt-2 hover:text-gray-300">{{ $movie['title'] }}</a>
+        <a href="{{ route('movies.show', $movie['id']) }}" class="text-lg mt-2 hover:text-gray-300">{{ $movie['title'] }}</a>
         <div class="flex items-center text-gray-400 text-sm mt-1">
             <svg class="fill-current text-yellow-500 w-4" viewBox="0 0 24 24">
                 <g data-name="Layer 2">
