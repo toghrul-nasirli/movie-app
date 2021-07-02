@@ -1,9 +1,9 @@
 <div class="mt-8">
     <a href="{{ route('movies.show', $movie['id']) }}">
         @if ($movie['poster_path'])
-            <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
+            <img src="https://image.tmdb.org/t/p/w500/{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
         @else
-            <img src="{{ asset('img/no-poster.png') }}" alt="{{ $movie['title'] }}" class="rounded hover:opacity-75 transition ease-in-out duration-200">
+            <img src="{{ asset('img/no-poster.png') }}" alt="{{ $movie['title'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
         @endif
     </a>
     <div class="mt-2">

@@ -4,9 +4,9 @@
     <div class="movie-info border-b border-gray-800">
         <div class="container flex items-center flex-col md:flex-row mx-auto px-4 py-12">
             @if ($movie['poster_path'])
-                <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="w-64 md:w-80">
+                <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="rounded-md w-64 md:w-80">
             @else
-                <img src="{{ asset('img/no-poster.png') }}" alt="{{ $movie['title'] }}" class="rounded w-64 md:w-80">
+                <img src="{{ asset('img/no-poster.png') }}" alt="{{ $movie['title'] }}" class="rounded-md w-64 md:w-80">
             @endif
             <div class="md:ml-24">
                 <div class="text-4xl font-semibold mt-2 md:mt-0">{{ $movie['title'] }}</div>
@@ -72,9 +72,9 @@
                             <div class="mt-8">
                                 <a href="#">
                                     @if ($cast['profile_path'])
-                                        <img src="https://image.tmdb.org/t/p/w300/{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
+                                        <img src="https://image.tmdb.org/t/p/w300/{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
                                     @else
-                                        <img src="{{ asset('img/no-profile-image.png') }}" alt="{{ $cast['name'] }}" class="rounded hover:opacity-75 transition ease-in-out duration-200">
+                                        <img src="{{ asset('img/no-profile-image.png') }}" alt="{{ $cast['name'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
                                     @endif
                                 </a>
                                 <div class="mt-2">
@@ -98,7 +98,7 @@
                         @if ($loop->index < 9)
                             <div class="mt-8">
                                 <a href="#">
-                                    <img src="https://www.themoviedb.org/t/p/w500{{ $image['file_path'] }}" alt="image1" class="hover:opacity-75 transition ease-in-out duration-200">
+                                    <img src="https://www.themoviedb.org/t/p/w500{{ $image['file_path'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
                                 </a>
                             </div>
                         @endif
