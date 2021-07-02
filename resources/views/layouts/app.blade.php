@@ -8,6 +8,7 @@
 <body class="font-sans bg-gray-900 text-white">
     @include('partials._nav')
     @yield('content')
+    @include('partials._scripts')
 </body>
 
 </html>

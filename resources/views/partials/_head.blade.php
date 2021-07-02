@@ -4,3 +4,5 @@
 <title>{{ config('app.name', 'Movie App') }}</title>
 
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+<livewire:styles>
