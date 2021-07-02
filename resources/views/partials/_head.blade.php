@@ -5,4 +5,4 @@
 
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-<livewire:styles>
+@livewireStyles

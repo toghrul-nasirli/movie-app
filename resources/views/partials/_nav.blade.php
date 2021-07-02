@@ -21,7 +21,7 @@
             </li>
         </ul>
         <div class="flex flex-col md:flex-row items-center">
-            <livewire:search-dropdown>
+            @livewire('search-dropdown')
             <div class="md:ml-4 mt-3 md:mt-0">
                 <a href="#">
                     <img src="{{ asset('img/me.jpg') }}" class="rounded-full w-8 h-8">
