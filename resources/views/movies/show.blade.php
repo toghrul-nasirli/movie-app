@@ -3,11 +3,7 @@
 @section('content')
     <div class="movie-info border-b border-gray-800">
         <div class="container flex flex-col md:flex-row mx-auto px-4 py-12">
-            @if ($movie['poster_path'])
-                <img src="{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="rounded-md w-64 md:w-80">
-            @else
-                <img src="{{ asset('img/no-poster.png') }}" alt="{{ $movie['title'] }}" class="rounded-md w-64 md:w-80">
-            @endif
+            <img src="{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="rounded-md w-64 md:w-80">
             <div class="md:ml-24">
                 <div class="text-4xl font-semibold mt-2 md:mt-0">{{ $movie['title'] }}</div>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm mt-1">
@@ -74,7 +70,7 @@
         </div>
     </div>
 
-    @if ($movie['cast'])
+    @if (count($movie['cast']))
         <div class="movie-cast border-b border-gray-800">
             <div class="container mx-auto px-4 py-16">
                 <h2 class="text-4xl font-semibold">Cast</h2>
@@ -82,11 +78,7 @@
                     @foreach ($movie['cast'] as $cast)
                         <div class="mt-8">
                             <a href="#">
-                                @if ($cast['profile_path'])
-                                    <img src="https://image.tmdb.org/t/p/w300/{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
-                                @else
-                                    <img src="{{ asset('img/no-profile-image.png') }}" alt="{{ $cast['name'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
-                                @endif
+                                <img src="{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
                             </a>
                             <div class="mt-2">
                                 <a href="#" class="text-lg mt-2 hover:text-gray:300">{{ $cast['name'] }}</a>
@@ -99,7 +91,7 @@
         </div>
     @endif
 
-    @if ($movie['images'])
+    @if (count($movie['images']))
         <div class="movie-images" x-data="{ isOpen: false, image: ''}">
             <div class="container mx-auto px-4 py-16">
                 <h2 class="text-4xl font-semibold">Images</h2>
@@ -107,7 +99,7 @@
                     @foreach ($movie['images'] as $image)
                         <div class="mt-8">
                             <a @click.prevent="isOpen = true; image = 'https://image.tmdb.org/t/p/original/{{ $image['file_path'] }}'" href="#">
-                                <img src="https://www.themoviedb.org/t/p/w500{{ $image['file_path'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
+                                <img src="{{ $image['file_path'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
                             </a>
                         </div>
                     @endforeach
