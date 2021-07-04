@@ -17,7 +17,7 @@
                 <a href="#" class="hover:text-gray-300">TV Shows</a>
             </li>
             <li class="md:ml-6 mt-3 md:mt-0">
-                <a href="#" class="hover:text-gray-300">Actors</a>
+                <a href="{{ route('people.index') }}" class="hover:text-gray-300">People</a>
             </li>
         </ul>
         <div class="flex flex-col md:flex-row items-center">
