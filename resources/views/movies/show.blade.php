@@ -20,14 +20,14 @@
                         <span>Upcoming</span>
                     @endif
                     <span class="mx-2">|</span>
-                    {{ $movie['genres'] }}
+                    <span>{{ $movie['genres'] }}</span>
                 </div>
 
                 <p class="text-gray-300 mt-8">{{ $movie['overview'] }}</p>
 
                 <div class="mt-12">
                     @if ($movie['crew'])
-                        <h4 class="text-white font-semibold">Featured Cast</h4>
+                        <h4 class="text-white font-semibold">Featured Crew</h4>
                         <div class="flex mt-4">
                             @foreach ($movie['crew'] as $crew)
                                 <div class="mr-8">
@@ -77,11 +77,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                     @foreach ($movie['cast'] as $cast)
                         <div class="mt-8">
-                            <a href="#">
+                            <a href="{{ route('people.show', $cast['id']) }}">
                                 <img src="{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
                             </a>
                             <div class="mt-2">
-                                <a href="#" class="text-lg mt-2 hover:text-gray:300">{{ $cast['name'] }}</a>
+                                <a href="{{ route('people.show', $cast['id']) }}" class="text-lg mt-2 hover:text-gray:300">{{ $cast['name'] }}</a>
                                 <div class="text-sm text-gray-400">{{ $cast['character'] }}</div>
                             </div>
                         </div>

@@ -27,7 +27,7 @@ class MovieViewModel extends ViewModel
             'cast' => collect($this->movie['credits']['cast'])->map(
                 fn ($cast) => collect($cast)->merge([
                     'profile_path' => $cast['profile_path'] ? 'https://image.tmdb.org/t/p/w300/' . $cast['profile_path'] : asset('img/no-profile-image.png')
-                ])->only(['profile_path', 'name', 'character'])
+                ])->only(['id', 'profile_path', 'name', 'character'])
             )->take(5),
             'images' => collect($this->movie['images']['backdrops'])->map(
                 fn ($image) => collect($image)->merge([
