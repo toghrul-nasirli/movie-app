@@ -98,8 +98,8 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     @foreach ($movie['images'] as $image)
                         <div class="mt-8">
-                            <a @click.prevent="isOpen = true; image = 'https://image.tmdb.org/t/p/original/{{ $image['file_path'] }}'" href="#">
-                                <img src="{{ $image['file_path'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
+                            <a @click.prevent="isOpen = true; image = '{{ $image['file_path_original'] }}'" href="#">
+                                <img src="{{ $image['file_path_w500'] }}" class="hover:opacity-75 transition ease-in-out duration-200">
                             </a>
                         </div>
                     @endforeach
@@ -111,7 +111,7 @@
                                 <button @click="isOpen = false; image = ''" @keydown.escape.window="isOpen = false; image = ''" class="text-3xl hover:text-gray-300">&times;</button>
                             </div>
                             <div class="modal-body px-8 py-8">
-                                <img :src="image" alt="poster">
+                                <img :src="image">
                             </div>
                         </div>
                     </div>

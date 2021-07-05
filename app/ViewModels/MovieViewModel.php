@@ -31,8 +31,9 @@ class MovieViewModel extends ViewModel
             )->take(5),
             'images' => collect($this->movie['images']['backdrops'])->map(
                 fn ($image) => collect($image)->merge([
-                    'file_path' => 'https://image.tmdb.org/t/p/w500/' . $image['file_path']
-                ])->only('file_path')
+                    'file_path_w500' => 'https://image.tmdb.org/t/p/w500/' . $image['file_path'],
+                    'file_path_original' => 'https://image.tmdb.org/t/p/original/' . $image['file_path'],
+                ])->only('file_path_w500', 'file_path_original')
             )->take(9),
             'trailer' => collect($this->movie['videos'])->map(
                 fn ($video) => $video ? 'https://www.youtube.com/embed/' . $this->movie['videos']['results'][0]['key'] : null
