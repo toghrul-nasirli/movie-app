@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\ViewModels\PeopleViewModel;
+use App\ViewModels\PersonViewModel;
 use Illuminate\Support\Facades\Http;
 
 class PersonController extends Controller
@@ -21,8 +22,14 @@ class PersonController extends Controller
         return view('people.index', $viewModel);
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('people.show');
+        $person = Http::withToken(config('services.tmdb.token'))
+            ->get("https://api.themoviedb.org/3/movie/$id?append_to_response=credits,videos,images")
+            ->json();
+
+        $viewModel = new PersonViewModel($person);
+
+        return view('people.show', $viewModel);
     }
 }

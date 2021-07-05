@@ -8,5 +8,5 @@ Route::redirect('/', '/movies');
 Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movies.show');
 
-Route::get('/people/{page?}', [PersonController::class, 'index'])->name('people.index');
+Route::get('/people/page/{page?}', [PersonController::class, 'index'])->name('people.index');
 Route::get('/people/{id}', [PersonController::class, 'show'])->name('people.show');

@@ -11,7 +11,7 @@
                             <img src="{{ $person['profile_path'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
                         </a>
                         <div class="mt-2">
-                            <a href="#" class="text-lg hover:text-gray-300">{{ $person['name'] }}</a>
+                            <a href="{{ route('people.show', $person['id']) }}" class="text-lg hover:text-gray-300">{{ $person['name'] }}</a>
                             <div class="text-sm truncate text-gray-400">{{ $person['known_for'] }}</div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
     <script>
         var elem = document.querySelector('.grid');
         var infScroll = new InfiniteScroll(elem, {
-            path: '/people/@{{#}}',
+            path: '/people/page/@{{#}}',
             append: '.person',
             status: '.page-load-status',
         });
