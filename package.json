@@ -19,6 +19,7 @@
         "tailwindcss-spinner": "^1.2.0"
     },
     "dependencies": {
-        "alpinejs": "^3.2.1"
+        "alpinejs": "^3.2.1",
+        "infinite-scroll": "^4.0.1"
     }
 }
