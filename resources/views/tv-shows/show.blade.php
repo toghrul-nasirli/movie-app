@@ -15,14 +15,16 @@
                     <span class="ml-1">{{ $tvShow['vote_average'] }}</span>
                     <span class="mx-2">|</span>
                     <span>{{ $tvShow['first_air_date'] }}</span>
-                    <span class="mx-2">|</span>
-                    <span>{{ $tvShow['genres'] }}</span>
+                    @if ($movie['genres'])
+                        <span class="mx-2">|</span>
+                        <span>{{ $tvShow['genres'] }}</span>
+                    @endif
                 </div>
 
                 <p class="text-gray-300 mt-8">{{ $tvShow['overview'] }}</p>
 
                 <div class="mt-12">
-                    @if ($tvShow['crew'])
+                    @if (count($tvShow['crew']))
                         <h4 class="text-white font-semibold">Featured Crew</h4>
                         <div class="flex mt-4">
                             @foreach ($tvShow['crew'] as $crew)

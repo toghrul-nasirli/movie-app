@@ -18,8 +18,8 @@ class MovieViewModel extends ViewModel
     {
         return collect($this->movie)->merge([
             'poster_path' => $this->movie['poster_path'] ? 'https://image.tmdb.org/t/p/w500/' . $this->movie['poster_path'] : asset('img/no-poster.png'),
-            'vote_average' => $this->movie['vote_average'] * 10 . '%',
-            'release_date' => Carbon::parse($this->movie['release_date'])->format('M d, Y'),
+            'vote_average' => $this->movie['vote_average'] ? $this->movie['vote_average'] * 10 . '%' : null,
+            'release_date' => isset($this->movie['release_date']) ? Carbon::parse($this->movie['release_date'])->format('M d, Y') : 'Upcoming',
             'genres' => collect($this->movie['genres'])->pluck('name')->implode(', '),
             'crew' => collect($this->movie['credits']['crew'])->map(
                 fn ($crew) => collect($crew)->only(['name', 'job'])

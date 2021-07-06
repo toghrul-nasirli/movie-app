@@ -10,7 +10,7 @@ class MovieCard extends Component
 
     public function __construct($movie)
     {
-        $this->movie  = $movie;
+        $this->movie = $movie;
     }
 
     public function render()
