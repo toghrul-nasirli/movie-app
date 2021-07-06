@@ -25,10 +25,18 @@ class PersonController extends Controller
     public function show($id)
     {
         $person = Http::withToken(config('services.tmdb.token'))
-            ->get("https://api.themoviedb.org/3/movie/$id?append_to_response=credits,videos,images")
+            ->get("https://api.themoviedb.org/3/person/$id")
+            ->json();
+        
+        $social = Http::withToken(config('services.tmdb.token'))
+            ->get("https://api.themoviedb.org/3/person/$id/external_ids")
+            ->json();
+        
+        $credits = Http::withToken(config('services.tmdb.token'))
+            ->get("https://api.themoviedb.org/3/person/$id/combined_credits")
             ->json();
 
-        $viewModel = new PersonViewModel($person);
+        $viewModel = new PersonViewModel($person, $social, $credits);
 
         return view('people.show', $viewModel);
     }
