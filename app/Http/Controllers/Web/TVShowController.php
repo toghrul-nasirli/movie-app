@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\ViewModels\TVShowsViewModel;
+use App\ViewModels\TVShowViewModel;
 use Illuminate\Support\Facades\Http;
 
 class TVShowController extends Controller
@@ -27,8 +28,14 @@ class TVShowController extends Controller
         return view('tv-shows.index', $viewModel);
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('tv-shows.show');
+        $tvShow = Http::withToken(config('services.tmdb.token'))
+            ->get("https://api.themoviedb.org/3/tv/$id?append_to_response=credits,videos,images")
+            ->json();
+
+        $viewModel = new TVShowViewModel($tvShow);
+
+        return view('tv-shows.show', $viewModel);
     }
 }
