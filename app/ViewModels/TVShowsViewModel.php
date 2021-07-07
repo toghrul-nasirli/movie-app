@@ -42,8 +42,8 @@ class TVShowsViewModel extends ViewModel
 
             return collect($tvShow)->merge([
                 'poster_path' => $tvShow['poster_path'] ? 'https://image.tmdb.org/t/p/w500/' . $tvShow['poster_path'] : asset('img/no-poster.png'),
-                'vote_average' => $tvShow['vote_average'] * 10 . '%',
-                'first_air_date' => isset($tvShow['release_date']) ? Carbon::parse($tvShow['first_air_date'])->format('M d, Y') : 'Upcoming',
+                'vote_average' => $tvShow['vote_average'] ? $tvShow['vote_average'] * 10 . '%' : null,
+                'first_air_date' => isset($tvShow['first_air_date']) ? Carbon::parse($tvShow['first_air_date'])->format('M d, Y') : 'Upcoming',
                 'genres' => $genres,
             ])->only(['id', 'poster_path', 'name', 'vote_average', 'first_air_date', 'genres']);
         });

@@ -17,10 +17,10 @@
                         <span class="mx-2">|</span>
                     @endif
                     <span>{{ $movie['release_date'] }}</span>
-                    @if ($movie['genres'])
+                    @if ($movie['genres'] && $movie['release_date'])
                         <span class="mx-2">|</span>
-                        <span>{{ $movie['genres'] }}</span>
                     @endif
+                    <span>{{ $movie['genres'] }}</span>
                 </div>
 
                 <p class="text-gray-300 mt-8">{{ $movie['overview'] }}</p>

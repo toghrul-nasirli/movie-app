@@ -48,7 +48,8 @@ class PersonViewModel extends ViewModel
             return collect($known_for)->merge([
                 'poster_path' => $known_for['poster_path'] ? 'https://image.tmdb.org/t/p/w185' . $known_for['poster_path'] : asset('img/no-poster-sm.png'),
                 'title' => $title,
-            ])->only('id', 'poster_path', 'title');
+                'link' => isset($known_for['title']) ? route('movies.show', $known_for['id']) : route('tv-shows.show', $known_for['id']),
+            ])->only('poster_path', 'title', 'link');
         })->take(5);
     }
 
@@ -60,7 +61,7 @@ class PersonViewModel extends ViewModel
             } elseif (isset($credit['first_air_date'])) {
                 $release_date = $credit['first_air_date'];
             } else {
-                $release_date = '';
+                $release_date = null;
             }
 
             if (isset($credit['title'])) {
@@ -76,7 +77,6 @@ class PersonViewModel extends ViewModel
                 'release_year' => isset($release_date) ? Carbon::parse($release_date)->format('Y') : 'Upcoming',
                 'title' => $title,
                 'character' => isset($credit['character']) ? $credit['character'] : '',
-
             ])->only('id', 'release_date', 'release_year', 'title', 'character');
         })->sortByDesc('release_date');
     }
