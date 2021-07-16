@@ -60,10 +60,10 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                     @foreach ($knownForTitles as $known_for)
                         <div class="mt-4">
-                            <a href="{{ route('movies.show', $known_for['id']) }}">
-                                <img src="{{ $known_for['poster_path'] }}" alt="poster" class="hover:opacity-75 transition ease-in-out duration-200">
+                            <a href="{{ $known_for['link'] }}">
+                                <img src="{{ $known_for['poster_path'] }}" alt="{{ $known_for['title'] }}" class="rounded-md hover:opacity-75 transition ease-in-out duration-200">
                             </a>
-                            <a href="{{ route('movies.show', $known_for['id']) }}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1">{{ $known_for['title'] }}</a>
+                            <a href="{{ $known_for['link'] }}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1">{{ $known_for['title'] }}</a>
                         </div>
                     @endforeach
                 </div>
